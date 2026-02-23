@@ -1,0 +1,25 @@
+[build]
+  command = "pnpm install && pnpm build"
+  functions = "netlify/functions"
+  publish = "dist/public"
+
+[dev]
+  command = "pnpm dev"
+  port = 3000
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production]
+  command = "pnpm install && pnpm build"
+  publish = "dist/public"
+
+[context.deploy-preview]
+  command = "pnpm install && pnpm build"
+  publish = "dist/public"
+
+[context.branch-deploy]
+  command = "pnpm install && pnpm build"
+  publish = "dist/public"
